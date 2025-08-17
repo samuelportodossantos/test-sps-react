@@ -1,21 +1,17 @@
-import axios from "axios";
+import API from "./Api";
 
 class UserService {
-  async list() {
-    const users = await axios.get(`${process.env.REACT_APP_SERVER_URL}/users`);
-    return users;
+  static async list() {
+    return await API.get('/users')
   }
-  async get(id) {
-    throw new Error("Not implemented");
+  static async create(data) {
+    return await API.post('/users', data)
   }
-  async create(data) {
-    throw new Error("Not implemented");
+  static async delete(id) {
+    return await API.delete(`/users/${id}`)
   }
-  async delete(id) {
-    throw new Error("Not implemented");
-  }
-  async update(id, data) {
-    throw new Error("Not implemented");
+  static async update(id, data) {
+    return await API.put(`/users/${id}`, {...data, id})
   }
 }
 

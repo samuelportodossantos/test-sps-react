@@ -1,13 +1,17 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import AuthGuard from "../middlewares/AuthGuard";
+import Layout from "./Layout";
 
 function Home() {
   return (
-    <div>
-      <h1>SPS REACT TEST</h1>
-
-      <Link to="/users">Usuários</Link>
-    </div>
+    <AuthGuard>
+      <Layout>
+        <div className="container">
+          <div className="content">
+            <h2>SPS REACT TEST</h2>
+          </div>
+        </div>
+      </Layout>
+    </AuthGuard>
   );
 }
 
