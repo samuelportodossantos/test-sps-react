@@ -11,6 +11,7 @@ function Users() {
   const [password, setPassword] = useState("")
   const [type, setType] = useState("common")
   const [id, setId] = useState(null)
+  const [errorMessage, setErrorMessage] = useState("")
 
   const [showModal, setShowModal] = useState(false)
 
@@ -24,19 +25,25 @@ function Users() {
   }
 
   async function submitUser() {
-    const payload = {
-      name,
-      email,
-      password,
-      type
+
+    try {
+      
+      const payload = {
+        name,
+        email,
+        password,
+        type
+      }
+      if (id) {
+        await UserService.update(id, payload)
+      } else {
+        await UserService.create(payload)
+      }
+      await fetchUsers()
+      closeModal()
+    } catch (error) {
+      setErrorMessage(error.response.data.message)
     }
-    if (id) {
-      await UserService.update(id, payload)
-    } else {
-      await UserService.create(payload)
-    }
-    await fetchUsers()
-    closeModal()
   }
 
   function closeModal() {
@@ -45,12 +52,11 @@ function Users() {
     setEmail("")
     setPassword("")
     setType("common")
+    setErrorMessage("")
   }
 
   function openEditModal(id) {
     const user = users[id]
-
-    console.log(user)
     setShowModal(true)
     setId(user.id)
     setName(user.name)
@@ -64,6 +70,7 @@ function Users() {
     setEmail("")
     setPassword("")
     setType("common")
+    setErrorMessage("")
   }
 
   function deleteUser(id) {
@@ -118,6 +125,8 @@ function Users() {
             <div className="modal-container">
               <div className="modal-content">
 
+                {errorMessage != "" && (<p className="error-message">{errorMessage}</p>)}
+
                 <div className="input-field">
                   <label htmlFor="name-input">Name</label>
                   <input id="name-input" value={name} type="text" placeholder="Type your name" onChange={(event) => setName(event.target.value)} />
@@ -136,7 +145,7 @@ function Users() {
                 <div className="input-field">
                   <label htmlFor="type-input">Account Type</label>
                   <select value={type} onChange={(event) => setType(event.target.value)}>
-                    <option selected value="admin">Admin</option>
+                    <option value="admin">Admin</option>
                     <option value="common">Common user</option>
                   </select>
                 </div>

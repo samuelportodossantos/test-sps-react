@@ -157,12 +157,13 @@ button, select {
     border: none;
 }
 
-.auth-error-message {
+.error-message {
     color: tomato;
     background-color: rgba(255, 255, 255, 0.2);
     border: 3px solid rgba(255, 0, 0, 0.2);
     border-radius: 5px;
     padding: 10px;
+    margin-bottom: 10px;
 }
 
 @media (max-width: 700px) {

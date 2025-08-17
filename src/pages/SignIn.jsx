@@ -50,7 +50,7 @@ function SignIn() {
         <div className="input-field">
           <button onClick={submitSignin} className="btn-primary">Sign In</button>
         </div>
-        {authErrorMessage != "" && (<p className="auth-error-message">{authErrorMessage}</p>)}
+        {authErrorMessage != "" && (<p className="error-message">{authErrorMessage}</p>)}
         
       </div>
     </div>
