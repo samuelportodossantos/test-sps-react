@@ -43,7 +43,7 @@ function Layout({ children }) {
                     </Box>
                 </Flex>
                 <Flex>
-                    <Box p={"4"}>
+                    <Box p={"4"} width={"100%"}>
                         {children}
                     </Box>
                 </Flex>

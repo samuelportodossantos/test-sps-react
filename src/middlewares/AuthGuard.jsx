@@ -6,9 +6,16 @@ function AuthGuard({ children }) {
     const navigate = useNavigate();
 
     async function verifyAuth() {
-        const token = localStorage.getItem("token");
-        const valid = await AuthService.isValidToken(token);
-        if (!valid) {
+        try {
+            const token = localStorage.getItem("token");
+            const valid = await AuthService.isValidToken(token);
+            console.log(valid)
+            if (!valid) {
+                localStorage.removeItem("token");
+                navigate('/login')
+            }
+        } catch(error) {
+            localStorage.removeItem("token");
             navigate('/login')
         }
     }

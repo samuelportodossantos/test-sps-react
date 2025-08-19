@@ -3,10 +3,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-.radix-themes {
-    height: 98vh;
-    min-height: 98dvh;
-}
 .rt-BaseButton {
     cursor: pointer;
 }

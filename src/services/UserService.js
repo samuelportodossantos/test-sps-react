@@ -1,8 +1,8 @@
 import API from "./Api";
 
 class UserService {
-  static async list() {
-    return await API.get('/users')
+  static async list({ page = 1 } = {}) {
+    return await API.get(`/users?page=${page}`)
   }
   static async create(data) {
     return await API.post('/users', data)
