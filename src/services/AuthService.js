@@ -15,12 +15,17 @@ class AuthService {
     return false
   }
 
-  static async isValidToken() {
-    const response = await API.get('/auth/check')
-    if (response.status === 200) {
-      return true
+  static async isValidToken(token) {
+    if (localStorage.getItem("token")) {
+      const response = await API.get('/auth/check', {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+      if (response.status === 200) {
+        return true
+      }
     }
-    localStorage.removeItem('token')
     return false
   }
 }
