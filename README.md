@@ -1,30 +1,47 @@
-----------------------------------
-ESPANHOL
-----------------------------------
+# SPS React Test
 
-## PRUEBA SPS REACT
+Este projeto é um teste técnico para SPS Group, desenvolvido em React.
 
-- Crear un CRUD de usuarios
+## Requisitos
 
-## Reglas
+- Node.js >= 18.x
+- npm >= 9.x ou yarn >= 1.x
 
-- Crear la página de inicio de sesión (signIn) para autenticar al usuario (usar el usuario previamente registrado para validar).
-- Se puede utilizar cualquier tipo de almacenamiento para guardar el token.
-- Solo será posible registrar y/o visualizar usuarios si el usuario está autenticado.
-- Consumir la API creada anteriormente (test-sps-server).
+## Instalação
 
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/seu-usuario/seu-repo.git
+   cd test-sps-react
+   ```
 
-----------------------------------
-PORTUGUÊS
-----------------------------------
+2. Instale as dependências:
+   ```bash
+   npm install
+   # ou
+   yarn install
+   ```
 
-# SPS REACT TEST
+## Ambiente de desenvolvimento
 
-- Criar um CRUD de usuários
+1. Crie um arquivo `.env` na raiz do projeto, se necessário, e configure as variáveis de ambiente conforme sua API.
 
-# Regras
+2. Inicie o servidor de desenvolvimento:
+   ```bash
+   npm start
+   # ou
+   yarn start
+   ```
 
-- Criar a página de signIn para fazer a autenticação do usuário (Usar o usuário previamente cadastrado para validar)
-- Pode usar qualquer tipo de storage para guardar o token
-- Só será possível cadastrar e/ou visualizar os usuários se estiver autenticado
-- Chamar a API que foi criada anteriormente (test-sps-server)
+3. Acesse [http://localhost:3000](http://localhost:3000) no navegador.
+
+## Scripts úteis
+
+- `npm start` / `yarn start`: Inicia o projeto em modo desenvolvimento.
+- `npm run build` / `yarn build`: Gera a versão de produção.
+- `npm test` / `yarn test`: Executa os testes.
+
+## Observações
+
+- Certifique-se que a API backend está rodando e acessível conforme configuração do `.env`.
+- Para dúvidas ou problemas, consulte o código
